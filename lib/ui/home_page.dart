@@ -1,4 +1,5 @@
 import 'package:accredib/theme.dart';
+import 'package:accredib/ui/transaction_page.dart';
 import 'package:accredib/utils.dart';
 import 'package:custom_fade_animation/custom_fade_animation.dart';
 import 'package:flutter/material.dart';
@@ -64,7 +65,10 @@ class _homePageState extends State<homePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton.extended(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.of(context)
+              .push(MaterialPageRoute(builder: (context) => transactionPage()));
+        },
         backgroundColor: colorBlack,
         elevation: 4.0,
         icon: const Icon(Icons.add),

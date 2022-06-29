@@ -60,6 +60,55 @@ Widget space(double height, double width) {
   );
 }
 
+Widget textField(
+    TextEditingController controller,
+    String ltext,
+    String htext,
+    double fontSize,
+    Color color,
+    FontWeight fontWeight,
+    TextAlign textAlign,
+    FontStyle fontStyle,
+    String image) {
+  return TextField(
+    controller: controller,
+    style: TextStyle(color: color, fontSize: fontSize),
+    decoration: InputDecoration(
+        fillColor: colorWhite,
+        filled: true,
+        enabledBorder: const OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(10)),
+        ),
+        prefixIcon: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Image.asset(
+            image,
+            width: 24,
+            height: 24,
+            fit: BoxFit.fill,
+            color: colorBlack,
+          ),
+        ),
+        border: const OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(10)),
+        ),
+        labelText: ltext,
+        labelStyle: TextStyle(
+            fontSize: fontSize,
+            color: color,
+            fontWeight: fontWeight,
+            fontStyle: fontStyle),
+        hintStyle: TextStyle(
+            fontSize: fontSize,
+            color: color,
+            fontWeight: fontWeight,
+            fontStyle: fontStyle),
+        hintText: htext),
+  );
+}
+
+
+
 Widget navigationBar(BuildContext context) {
   return Drawer(
     child: Expanded(
