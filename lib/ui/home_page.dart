@@ -4,6 +4,8 @@ import 'package:custom_fade_animation/custom_fade_animation.dart';
 import 'package:flutter/material.dart';
 
 class homePage extends StatefulWidget {
+  const homePage({Key? key}) : super(key: key);
+
   @override
   State<StatefulWidget> createState() => _homePageState();
 }
