@@ -32,6 +32,7 @@ List<String> navBarOptions = [
   "Feedback",
   "Logout"
 ];
+
 List<Icon> navBarOptionsIcon = [
   const Icon(Icons.mobile_friendly),
   const Icon(Icons.verified_user_sharp),
@@ -51,6 +52,27 @@ Widget textStyle(String text, double fontSize, Color color,
         fontWeight: fontWeight,
         fontStyle: fontStyle),
   );
+}
+
+Widget textStyleButton(
+    String text,
+    double fontSize,
+    Color color,
+    FontWeight fontWeight,
+    TextAlign textAlign,
+    FontStyle fontStyle,
+    VoidCallback onclick) {
+  return GestureDetector(
+      onTap: onclick,
+      child: Text(
+        text,
+        textAlign: textAlign,
+        style: GoogleFonts.poppins(
+            fontSize: fontSize,
+            color: color,
+            fontWeight: fontWeight,
+            fontStyle: fontStyle),
+      ));
 }
 
 Widget space(double height, double width) {
@@ -73,7 +95,10 @@ Widget textField(
   return TextField(
     controller: controller,
     style: TextStyle(color: color, fontSize: fontSize),
+    maxLength: 3,
+
     decoration: InputDecoration(
+
         fillColor: colorWhite,
         filled: true,
         enabledBorder: const OutlineInputBorder(
@@ -107,7 +132,14 @@ Widget textField(
   );
 }
 
-
+Widget Buttons(VoidCallback, String text, double fontSize, Color color,
+    FontWeight fontWeight, TextAlign textAlign, FontStyle fontStyle) {
+  return ElevatedButton(
+      style: ElevatedButton.styleFrom(primary: colorLightOrange),
+      onPressed: () {},
+      child:
+          textStyle(text, fontSize, color, fontWeight, textAlign, fontStyle));
+}
 
 Widget navigationBar(BuildContext context) {
   return Drawer(
@@ -134,16 +166,14 @@ Widget navigationBar(BuildContext context) {
               onTap: () => {},
             ),
           ),
-          Container(
-            child: Align(
-              child: Column(
-                children: const <Widget>[
-                  Divider(),
-                  ListTile(
-                      leading: Icon(Icons.settings), title: Text('Facebook')),
-                  ListTile(leading: Icon(Icons.help), title: Text('Instagram'))
-                ],
-              ),
+          Align(
+            child: Column(
+              children: const <Widget>[
+                Divider(),
+                ListTile(
+                    leading: Icon(Icons.settings), title: Text('Facebook')),
+                ListTile(leading: Icon(Icons.help), title: Text('Instagram'))
+              ],
             ),
           ),
         ],

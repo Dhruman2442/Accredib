@@ -1,4 +1,5 @@
 import 'package:accredib/theme.dart';
+import 'package:accredib/ui/account_balance.dart';
 import 'package:accredib/utils.dart';
 import 'package:flutter/material.dart';
 
@@ -26,7 +27,8 @@ class _transactionPageState extends State<transactionPage> {
           iconTheme: IconThemeData(color: colorBlack),
           backgroundColor: colorOrange,
           title: textStyle('Transaction', 20, colorBlack, fontWeightBold,
-              textAlignLeft, fontStyleNormal),
+              textAlignLeft, fontStyleNormal
+          ),
           actions: [
             Center(
               child: TextButton(
@@ -147,7 +149,5 @@ class _transactionPageState extends State<transactionPage> {
         ),
       ),
     );
-
-    ;
   }
 }

@@ -1,4 +1,5 @@
 import 'package:accredib/theme.dart';
+import 'package:accredib/ui/account_balance.dart';
 import 'package:accredib/ui/transaction_page.dart';
 import 'package:accredib/utils.dart';
 import 'package:custom_fade_animation/custom_fade_animation.dart';
@@ -123,21 +124,25 @@ class _homePageState extends State<homePage> {
                       children: [
                         textStyle("Account Balance", 20, colorWhite,
                             fontWeightMedium, textAlignCenter, fontStyleNormal),
-                        textStyle("1000000 Rs.", 20, colorWhite,
-                            fontWeightMedium, textAlignCenter, fontStyleNormal),
+                        textStyle("\$1000000", 20, colorWhite, fontWeightMedium,
+                            textAlignCenter, fontStyleNormal),
                         space(15, 0),
                         GestureDetector(
                             onTap: () {},
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
-                                textStyle(
+                                textStyleButton(
                                     "Show Account Status",
                                     fontSizeSmall,
                                     colorBlue,
                                     fontWeightBold,
                                     textAlignCenter,
-                                    fontStyleNormal),
+                                    fontStyleNormal, () {
+                                  Navigator.of(context).push(MaterialPageRoute(
+                                      builder: (context) =>
+                                          AccountBalancePage()));
+                                }),
                                 Icon(
                                   Icons.arrow_forward_ios,
                                   size: 10,
@@ -198,7 +203,7 @@ class _homePageState extends State<homePage> {
       Column(
         children: [
           Container(
-            padding: EdgeInsets.all(10),
+            padding: const EdgeInsets.all(10),
             child: Image.asset(
               "asset/Profile.svg",
               color: colorBlack,
@@ -215,7 +220,7 @@ class _homePageState extends State<homePage> {
             shrinkWrap: true,
             itemBuilder: (context, index) => Column(children: [
               ListTile(
-                contentPadding: EdgeInsets.all(7),
+                contentPadding: const EdgeInsets.all(7),
                 leading: CircleAvatar(
                   backgroundColor: colorlightBlack,
                   child: SettingImageList[index],
